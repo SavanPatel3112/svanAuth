@@ -1,0 +1,40 @@
+server:
+  port: 9001
+spring:
+  main:
+    allow-circular-references: true
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/auth
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  rabbitmq:
+    host: localhost
+    password: guest
+    username: guest
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+trs:
+  defaults:
+    timezone: CST
+    prefetchCount: 1
+    concurrentConsumers: 1
+
+
+rmq:
+  userSend:
+    queueName: userDetail
+    exchangeName: user.exchange
+    routingKey: user.userSend
+
